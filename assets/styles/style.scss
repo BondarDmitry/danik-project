@@ -1,0 +1,238 @@
+@import "mixins";
+@import "variables";
+@import "basic";
+
+body {
+  padding: 60px 0;
+  background-color: #000;
+  min-height: 100vh;
+
+  @media only screen and (max-width: 750px) {
+    padding: 10px 0;
+  }
+}
+
+header {
+  padding: 70px 0;
+
+  @media only screen and (max-width: 750px) {
+    padding: 10px 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media only screen and (max-width: 750px) {
+      flex-direction: column-reverse;
+    }
+
+    .logo {
+
+      .logo_title {
+        margin-bottom: 6px;
+        font-size: 8px;
+        line-height: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        &:hover {
+          color: #ff94c1;
+        }
+      }
+
+      .logo_sub-title {
+        letter-spacing: 1px;
+        font-size: 8px;
+        line-height: 1;
+        text-transform: uppercase;
+        color: rgba(115,115,115,.6);
+      }
+    }
+
+    nav {
+
+      @media only screen and (max-width: 750px) {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      .nav-trigger {
+        display: none;
+        background: transparent;
+        font-size: 16px;
+        line-height: 20px;
+        cursor: pointer;
+        margin-bottom: 20px;
+
+        @media only screen and (max-width: 750px) {
+          display: block;
+        }
+      }
+
+      .nav {
+
+        @media only screen and (max-width: 750px) {
+          height: 0;
+          overflow: hidden;
+          transition: all 0.2s linear;
+          width: 100%;
+          margin-bottom: 15px;
+          position: relative;
+
+          &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+
+          &.opened {
+            height: 109px;
+          }
+
+          &.opened-sub {
+            height: 184px;
+          }
+        }
+
+        .nav_item {
+          margin-right: 21px;
+          position: relative;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          @media only screen and (max-width: 750px) {
+            margin-right: 0;
+            margin-bottom: 15px;
+            text-align: center;
+          }
+
+          .nav_link {
+            font-size: 8px;
+            line-height: 16px;
+
+            &:hover {
+              color: #ff94c1;
+            }
+
+            @media only screen and (max-width: 750px) {
+              font-size: 16px;
+              line-height: 20px;
+
+              &.have-sub-menu {
+
+                &:after {
+                  content: '+';
+                  margin-left: 5px;
+                  display: inline-block;
+                  font-family: sans-serif;
+                }
+              }
+
+              &:hover {
+                color: unset;
+              }
+            }
+          }
+
+          .nav_item_sub-menu {
+            position: absolute;
+            top: 100%;
+            height: 0;
+            overflow: hidden;
+            min-width: 100%;
+            transition: all 0.2s ease-in-out;
+
+            @media only screen and (max-width: 750px) {
+              position: relative;
+            }
+
+            .sub-menu__item {
+
+              .sub-menu__link {
+                font-size: 8px;
+                line-height: 16px;
+                white-space: nowrap;
+                padding: 3px 10px 3px 0;
+
+                @media only screen and (max-width: 750px) {
+                  font-size: 16px;
+                  line-height: 20px;
+                  text-align: center;
+                }
+
+                @media only screen and (min-width: 750px) {
+                  &:hover {
+                    color: #ff94c1;
+                  }
+                }
+              }
+            }
+
+            &.opened {
+              height: 78px;
+            }
+          }
+
+          @media only screen and (min-width: 750px) {
+            &:hover {
+
+              .nav_item_sub-menu {
+                height: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+
+  .footer-trigger {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 20px;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      font-size: 8px;
+      line-height: 16px;
+      white-space: nowrap;
+
+      &:hover {
+        color: #ff94c1;
+      }
+    }
+  }
+}
+
+

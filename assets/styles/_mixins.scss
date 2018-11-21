@@ -1,0 +1,39 @@
+// media
+
+@mixin mq($point) {
+  @if $point == xs {
+    @media (max-width: 567px) {
+      @content;
+    }
+  }
+
+  @if $point == s {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @if $point == md {
+    @media (max-width: 979px) {
+      @content;
+    }
+  }
+
+  @if $point == min-md {
+    @media (min-width: 980px) and (max-width: 1199px) {
+      @content;
+    }
+  }
+
+  @if $point == lg {
+    @media (max-width: 1199px) {
+      @content;
+    }
+  }
+
+  @if $point == min-lg {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
