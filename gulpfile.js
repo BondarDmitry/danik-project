@@ -29,6 +29,7 @@ gulp.task('js', function() {
     gulp.src([
                 './assets/javascripts/jquery-3.3.1.min.js',
                 './assets/javascripts/wow.min.js',
+                './assets/javascripts/mc-validate.js',
                 './assets/javascripts/script.js'
         ]) // файлы, которые обрабатываем
         .pipe(concat('min.js')) // склеиваем все JS

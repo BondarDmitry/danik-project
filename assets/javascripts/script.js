@@ -22,6 +22,11 @@ $(document).ready( function() {
         });
     }
 
+    $('.footer-trigger').click(function () {
+        $('.footer-nav').toggleClass('opened');
+        $('.footer').toggleClass('opened');
+    });
+
 });
 
 new WOW().init();
