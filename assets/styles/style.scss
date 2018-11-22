@@ -34,7 +34,8 @@ header {
         margin-bottom: 6px;
         font-size: 8px;
         line-height: 10px;
-        letter-spacing: 2px;
+        letter-spacing: 0.14em;
+        font-weight: bold;
         text-transform: uppercase;
 
         &:hover {
@@ -43,8 +44,8 @@ header {
       }
 
       .logo_sub-title {
-        letter-spacing: 1px;
         font-size: 8px;
+        letter-spacing: 0.14em;
         line-height: 1;
         text-transform: uppercase;
         color: rgba(115,115,115,.6);
@@ -125,6 +126,7 @@ header {
           .nav_link {
             font-size: 8px;
             line-height: 16px;
+            letter-spacing: 0.1em;
 
             &:hover {
               color: #ff94c1;
@@ -167,6 +169,7 @@ header {
               .sub-menu__link {
                 font-size: 8px;
                 line-height: 16px;
+                letter-spacing: 0.14em;
                 white-space: nowrap;
                 padding: 3px 10px 3px 0;
 
@@ -215,6 +218,7 @@ header {
     display: block;
     margin: 0 auto;
     cursor: pointer;
+    color: #fff;
     background-color: transparent;
     font-size: 16px;
     line-height: 20px;
@@ -232,6 +236,7 @@ header {
     a {
       font-size: 8px;
       line-height: 16px;
+      letter-spacing: 0.14em;
       white-space: nowrap;
 
       &:hover {
@@ -263,6 +268,7 @@ footer {
 
   input {
     font-size: 18px;
+    letter-spacing: 0.1em;
     background-color: #000;
     border: none;
     outline: none;

@@ -257,60 +257,63 @@
 
                 // If the form has errors, display them, inline if possible, or appended to #mce-error-response
             } else {
-                if (resp.msg === "captcha") {
-                    var url = $("form#mc-embedded-subscribe-form").attr("action");
-                    var parameters = $.param(resp.params);
-                    url = url.split("?")[0];
-                    url += "?";
-                    url += parameters;
-                    window.open(url);
-                };
-                // Example errors - Note: You only get one back at a time even if you submit several that are bad.
-                // Error structure - number indicates the index of the merge field that was invalid, then details
-                // Object {result: "error", msg: "6 - Please enter the date"}
-                // Object {result: "error", msg: "4 - Please enter a value"}
-                // Object {result: "error", msg: "9 - Please enter a complete address"}
+                console.log('lol')
 
-                // Try to parse the error into a field index and a message.
-                // On failure, just put the dump thing into in the msg variable.
-                var index = -1;
-                var msg;
-                try {
-                    var parts = resp.msg.split(' - ',2);
-                    if (parts[1]==undefined){
-                        msg = resp.msg;
-                    } else {
-                        i = parseInt(parts[0]);
-                        if (i.toString() == parts[0]){
-                            index = parts[0];
-                            msg = parts[1];
-                        } else {
-                            index = -1;
-                            msg = resp.msg;
-                        }
-                    }
-                } catch(e){
-                    index = -1;
-                    msg = resp.msg;
-                }
-
-                try {
-                    // If index is -1 if means we don't have data on specifically which field was invalid.
-                    // Just lump the error message into the generic response div.
-                    if (index == -1){
-                        $('#mce-'+resp.result+'-response').show();
-                        $('#mce-'+resp.result+'-response').html(msg);
-
-                    } else {
-                        var fieldName = $("input[name*='"+fnames[index]+"']").attr('name'); // Make sure this exists (they haven't deleted the fnames array lookup)
-                        var data = {};
-                        data[fieldName] = msg;
-                        mc.mce_validator.showErrors(data);
-                    }
-                } catch(e){
-                    $('#mce-'+resp.result+'-response').show();
-                    $('#mce-'+resp.result+'-response').html(msg);
-                }
+                $('#mce-EMAIL').addClass('animated shake');
+                // if (resp.msg === "captcha") {
+                //     var url = $("form#mc-embedded-subscribe-form").attr("action");
+                //     var parameters = $.param(resp.params);
+                //     url = url.split("?")[0];
+                //     url += "?";
+                //     url += parameters;
+                //     window.open(url);
+                // };
+                // // Example errors - Note: You only get one back at a time even if you submit several that are bad.
+                // // Error structure - number indicates the index of the merge field that was invalid, then details
+                // // Object {result: "error", msg: "6 - Please enter the date"}
+                // // Object {result: "error", msg: "4 - Please enter a value"}
+                // // Object {result: "error", msg: "9 - Please enter a complete address"}
+                //
+                // // Try to parse the error into a field index and a message.
+                // // On failure, just put the dump thing into in the msg variable.
+                // var index = -1;
+                // var msg;
+                // try {
+                //     var parts = resp.msg.split(' - ',2);
+                //     if (parts[1]==undefined){
+                //         msg = resp.msg;
+                //     } else {
+                //         i = parseInt(parts[0]);
+                //         if (i.toString() == parts[0]){
+                //             index = parts[0];
+                //             msg = parts[1];
+                //         } else {
+                //             index = -1;
+                //             msg = resp.msg;
+                //         }
+                //     }
+                // } catch(e){
+                //     index = -1;
+                //     msg = resp.msg;
+                // }
+                //
+                // try {
+                //     // If index is -1 if means we don't have data on specifically which field was invalid.
+                //     // Just lump the error message into the generic response div.
+                //     if (index == -1){
+                //         $('#mce-'+resp.result+'-response').show();
+                //         $('#mce-'+resp.result+'-response').html(msg);
+                //
+                //     } else {
+                //         var fieldName = $("input[name*='"+fnames[index]+"']").attr('name'); // Make sure this exists (they haven't deleted the fnames array lookup)
+                //         var data = {};
+                //         data[fieldName] = msg;
+                //         mc.mce_validator.showErrors(data);
+                //     }
+                // } catch(e){
+                //     $('#mce-'+resp.result+'-response').show();
+                //     $('#mce-'+resp.result+'-response').html(msg);
+                // }
             }
         }
     }
