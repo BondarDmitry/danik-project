@@ -15,7 +15,7 @@ $(document).ready( function() {
     });
 
     if($(window).width() < 750){
-        $('.have-sub-menu').click(function (e) {
+        $('.have-sub-menu').click(function () {
             $(this).toggleClass('clicked');
             $('.nav_item_sub-menu').toggleClass('opened');
             $('.nav').toggleClass('opened-sub');
